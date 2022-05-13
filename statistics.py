@@ -12,9 +12,7 @@ def calculateStats(numbers):
         print(stat_res)
     else:
         stat_res = {"max" : "nan", "max" : "nan", "max" : "nan"}
-        return stat_res
-            
-    return None
+    return stat_res
 
 class StatsAlerter():
     def __init__(self, maxT, alerts):
