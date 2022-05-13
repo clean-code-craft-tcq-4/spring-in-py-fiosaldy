@@ -11,7 +11,7 @@ def calculateStats(numbers):
         stat_res["avg"] = float(stat_res["avg"]/len(numbers))
         print(stat_res)
     else:
-        stat_res = {"max" : "nan", "max" : "nan", "max" : "nan"}
+        stat_res = {"max" : "nan", "min" : "nan", "avg" : "nan"}
     return stat_res
 
 class StatsAlerter():
