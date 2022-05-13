@@ -15,12 +15,15 @@ class StatsTest(unittest.TestCase):
     # nan (not-a-number), as defined in the math package
     # Design the assert here.
     # Use nan and isnan in https://docs.python.org/3/library/math.html
+    self.assertIs(computedStats["avg"], "nan")
+    self.assertIs(computedStats["min"], "nan")
+    self.assertIs(computedStats["max"], "nan")    
 
   def test_raise_alerts_when_max_above_threshold(self):
-    emailAlert = EmailAlert()
-    ledAlert = LEDAlert()
+    emailAlert = statistics.EmailAlert()
+    ledAlert = statistics.LEDAlert()
     maxThreshold = 10.5
-    statsAlerter = StatsAlerter(maxThreshold, [emailAlert, ledAlert])
+    statsAlerter = statistics.StatsAlerter(maxThreshold, [emailAlert, ledAlert])
     statsAlerter.checkAndAlert([22.6, 12.5, 3.7])
     self.assertTrue(emailAlert.emailSent)
     self.assertTrue(ledAlert.ledGlows)
