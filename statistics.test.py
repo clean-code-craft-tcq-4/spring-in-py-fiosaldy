@@ -13,16 +13,18 @@ class StatsTest(unittest.TestCase):
 
   def test_avg_is_nan_for_empty_input(self):
     computedStats = statistics.calculateStats([])
-    #self.assertTrue((math.isnan(computedStats["avg"])) and math.isnan("nan"))
-    self.assertIs(computedStats["avg"], "nan")
-    self.assertIs(computedStats["min"], "nan")
-    self.assertIs(computedStats["max"], "nan")  
+    #Compariso
+    self.assertIs(math.isnan(float(computedStats["avg"])), math.isnan(float("nan")))
+    self.assertIs(math.isnan(float(computedStats["min"])), math.isnan(float("nan")))
+    self.assertIs(math.isnan(float(computedStats["max"])), math.isnan(float("nan")))
+  
     # All fields of computedStats (average, max, min) must be
     # nan (not-a-number), as defined in the math package
     # Design the assert here.
     # Use nan and isnan in https://docs.python.org/3/library/math.html  
 
   def test_raise_alerts_when_max_above_threshold(self):
+    #The below t
     emailAlert = statistics.EmailAlert()
     ledAlert = statistics.LEDAlert()
     maxThreshold = 10.5
